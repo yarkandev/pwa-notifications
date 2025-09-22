@@ -448,7 +448,7 @@
                 
                 this.customAudios.notification = {
                     type: 'file', 
-                    url: './sounds/nt2.wav' // Coloque seu arquivo aqui
+                    url: './sounds/nt2.mp3' // Coloque seu arquivo aqui
                 };
 
                 // Método 2: Base64 embutido (recomendado para PWA)
@@ -1004,11 +1004,8 @@
                         logger.log(`Erro em ambos os métodos de áudio: ${fallbackError.message}`, 'error');
                     }
                 }
-
-                // 1. Notificação in-app VISÍVEL (sempre aparece)
-                showInAppNotification(data);
                 
-                // 2. Notificação do sistema (vai para central de notificações)
+                // Notificação após pequeno delay para sincronização
                 setTimeout(() => {
                     const notification = new Notification('✅ Formulário Enviado!', {
                         body: `Obrigado, ${data.name}! Sua mensagem sobre "${data.subject}" foi enviada com sucesso.`,
@@ -1016,11 +1013,7 @@
                         tag: 'form-success-' + Date.now(),
                         requireInteraction: true,
                         silent: false,
-                        vibrate: [100, 50, 100, 50, 100, 50, 100],
-                        // IMPORTANTE: Tentar forçar exibição
-                        timestamp: Date.now(),
-                        dir: 'ltr',
-                        lang: 'pt-BR'
+                        vibrate: [100, 50, 100, 50, 100, 50, 100]
                     });
 
                     notification.onclick = () => {
@@ -1030,7 +1023,7 @@
                     };
 
                     notification.onshow = () => {
-                        logger.log('Notificação de sistema enviada!', 'success');
+                        logger.log('Notificação de sucesso exibida com som!', 'success');
                     };
 
                     notification.onerror = (error) => {
@@ -1046,128 +1039,8 @@
                     }, 10000);
                 }, 200);
 
-                // 3. TRUQUE iOS: Minimizar e restaurar app para forçar notificação
-                if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-                    setTimeout(() => {
-                        // Simular perda de foco para iOS mostrar notificação
-                        window.blur();
-                        setTimeout(() => {
-                            window.focus();
-                        }, 1000);
-                    }, 500);
-                }
-
             } catch (error) {
                 logger.log(`Erro na notificação de sucesso: ${error.message}`, 'error');
-            }
-        }
-
-        // Nova função: Notificação in-app VISÍVEL
-        function showInAppNotification(data) {
-            // Criar notificação visual dentro do app
-            const inAppNotification = document.createElement('div');
-            inAppNotification.id = 'in-app-notification';
-            inAppNotification.innerHTML = `
-                <div style="
-                    position: fixed;
-                    top: 20px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-                    color: white;
-                    padding: 20px 30px;
-                    border-radius: 15px;
-                    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
-                    z-index: 10000;
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-                    font-weight: 600;
-                    font-size: 16px;
-                    text-align: center;
-                    max-width: 90vw;
-                    animation: slideInFromTop 0.5s ease-out;
-                    backdrop-filter: blur(10px);
-                    border: 2px solid rgba(255, 255, 255, 0.2);
-                ">
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-                        <span style="font-size: 24px;">✅</span>
-                        <div>
-                            <div style="font-size: 18px; margin-bottom: 5px;">Formulário Enviado!</div>
-                            <div style="font-size: 14px; opacity: 0.9;">
-                                Obrigado, ${data.name}! Sua mensagem foi enviada com sucesso.
-                            </div>
-                        </div>
-                        <button onclick="closeInAppNotification()" style="
-                            background: rgba(255, 255, 255, 0.2);
-                            border: none;
-                            color: white;
-                            width: 30px;
-                            height: 30px;
-                            border-radius: 50%;
-                            cursor: pointer;
-                            font-size: 16px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                        ">×</button>
-                    </div>
-                </div>
-            `;
-
-            // Adicionar CSS de animação
-            if (!document.getElementById('in-app-notification-styles')) {
-                const style = document.createElement('style');
-                style.id = 'in-app-notification-styles';
-                style.textContent = `
-                    @keyframes slideInFromTop {
-                        from {
-                            opacity: 0;
-                            transform: translateX(-50%) translateY(-100px);
-                        }
-                        to {
-                            opacity: 1;
-                            transform: translateX(-50%) translateY(0);
-                        }
-                    }
-                    
-                    @keyframes slideOutToTop {
-                        from {
-                            opacity: 1;
-                            transform: translateX(-50%) translateY(0);
-                        }
-                        to {
-                            opacity: 0;
-                            transform: translateX(-50%) translateY(-100px);
-                        }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
-
-            // Remover notificação anterior se existir
-            const existing = document.getElementById('in-app-notification');
-            if (existing) {
-                existing.remove();
-            }
-
-            // Adicionar nova notificação
-            document.body.appendChild(inAppNotification);
-
-            // Auto-remover após 5 segundos
-            setTimeout(() => {
-                closeInAppNotification();
-            }, 5000);
-
-            logger.log('Notificação in-app exibida no topo da tela', 'success');
-        }
-
-        // Função para fechar notificação in-app
-        function closeInAppNotification() {
-            const notification = document.getElementById('in-app-notification');
-            if (notification) {
-                notification.style.animation = 'slideOutToTop 0.3s ease-in';
-                setTimeout(() => {
-                    notification.remove();
-                }, 300);
             }
         }
 
@@ -1278,4 +1151,3 @@
     </script>
 </body>
 </html>
-
