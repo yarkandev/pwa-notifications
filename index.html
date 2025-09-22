@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário PWA iOS</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Formulário PWA">
+    
+    <!-- PWA Links -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkZvcm11bMOhcmlvIFBXQSIsCiAgInNob3J0X25hbWUiOiAiRm9ybXVsw6FyaW8iLAogICJkZXNjcmlwdGlvbiI6ICJGb3JtdWzDoXJpbyBjb20gbm90aWZpY2HDp8O1ZXMgcHVzaCIsCiAgInN0YXJ0X3VybCI6ICIvIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjZmZmZmZmIiwKICAidGhlbWVfY29sb3IiOiAiIzY2N2VlYSIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjNhV1IwYUQwaU1UazJJaUJvWldsbmFIUTlJakU1TmlJZ2RtbGxkMEp2ZUQwaU1DQXdJREU1TmlBeE9UWWlJR1pwYkd3OUlpTTJOamRsWldFaUlIaHRiRzV6UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMM04yWnlJK1BHTnBjbU5zWlNCamVEMGlPVGdpSUdONVBTSTVPQ0lnY2owaU16QWlJR1pwYkd3OUlpTm1abVptWmlJdlBqeDBaWGgwSUhnOUlqUTRJaUI1UFNJeE1EQWlJSFJsZUhRdFlXNWphRzl5UFNKdGFXUmtiR1VpSUdacGJHdzlJaU0yTmpkbFpXRWlQa1k4TDNSbGVIUStQQzl6ZG1jKyIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTlRFeUlpQm9aV2xuYUhROUlqVXhNaUlnZG1sbGQwSnZlRDBpTUNBd0lEVXhNaUExTVRJaUlHWnBiR3c5SWlNMk5qZGxaV0VpSUhodGJHNXpQU0pvZEhSd09pOHZkM2QzTG5jekxtOXlaeTh5TURBd0wzTjJaeUkrUEdOcGNtTnNaU0JqZUQwaU1qVTJJaUJqZVQwaU1qVTJJaUJ5UFNJMk1DSWdabWxzYkQwaWkyWm1abVppSXZQanh6WlhKamJHVWdZM2c5SURRM0lpQmplVDBpTlRVaUlISTlJelJsUVdSaFl6UWlJR1pwYkd3OUlpVXlOamRsWldGR1FpSXZQanh6YzNjNmNHRjBhQ0JrUFNKTklERTVOUzQ0TnlCNE1ETWdkakkwUkc5MEx6WnJObmd0WmpZNU9TODBiU0VnUlRZdU1Ea2dOaTR3T1M0eU56Y2dOUzQ1TnkxdE1EQWdNVEY2SWlCbWFXeHNQU0lpTXpZM1pXVmhJaUIzYVdSMGFEMGlNelFpSUdodlpYZHdjbUYwYVc5dVBTSXVOekkySWlBdlBqeDBaWGgwSUhnOUlqRXlNaUlnZVQwaU1qWXlJaUIwWlhoMExXRnVZMmh2Y2owaWJXbGtaR3hsSWlCbWFXeHNQU0lpTXpZM1pXVmhJajVHUEM5MFpYaDRQand2YzNabksiLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiCiAgICB9CiAgXQp9">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTk2IiBoZWlnaHQ9IjE5NiIgdmlld0JveD0iMCAwIDE5NiAxOTYiIGZpbGw9IiM2NjdlZWEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iOTgiIGN5PSI5OCIgcj0iMzAiIGZpbGw9IiNmZmZmZiIvPjx0ZXh0IHg9IjQ4IiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjdlZWEiPkY8L3RleHQ+PC9zdmc+">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            padding: 40px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn.debug {
+            background: #17a2b8;
+            font-size: 0.9rem;
+            padding: 12px 30px;
+        }
+
+        .notification-status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .notification-status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .notification-status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .notification-status.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .notification-status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .debug-section {
+            background: rgba(23, 162, 184, 0.1);
+            border: 2px solid #17a2b8;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #0c5460;
+        }
+
+        .debug-info {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            max-height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+
+        .log-viewer {
+            background: #000;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 10px 0;
+        }
+
+        .ios-guide {
+            background: rgba(255, 193, 7, 0.1);
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #856404;
+        }
+
+        .ios-guide h4 {
+            margin-bottom: 10px;
+            color: #b45309;
+        }
+
+        .ios-guide ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .ios-guide li {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 Formulário PWA</h1>
+            <p>Com notificações sonoras para iOS</p>
+        </div>
+        
+        <div class="form-container">
+            <!-- iOS Guide -->
+            <div class="ios-guide">
+                <h4>📲 Como ativar notificações com som no iOS:</h4>
+                <ol>
+                    <li>Certifique-se que o PWA está <strong>instalado na tela inicial</strong></li>
+                    <li>Abra o app <strong>a partir da tela inicial</strong></li>
+                    <li>Toque em qualquer botão para <strong>ativar o áudio</strong></li>
+                    <li>Permita <strong>notificações</strong> quando solicitado</li>
+                    <li>Teste e envie o formulário!</li>
+                </ol>
+            </div>
+
+            <!-- Debug Section -->
+            <div class="debug-section">
+                <h3>🔧 Testes e Debug</h3>
+                <div id="debug-info" class="debug-info">Carregando informações...</div>
+                
+                <button class="btn debug" onclick="testNotificationWithSound()">🔔 Teste Completo</button>
+                <button class="btn debug" onclick="testSoundOnly()">🔊 Só o Som</button>
+                <button class="btn debug" onclick="listAvailableAudios()">🎵 Listar Áudios</button>
+                <button class="btn debug" onclick="requestPermissions()">✅ Permissões</button>
+                
+                <!-- Upload de áudio personalizado -->
+                <div style="margin: 15px 0;">
+                    <label for="audio-upload" style="display: block; margin-bottom: 5px; font-size: 0.9rem;">
+                        📁 Upload Áudio Personalizado:
+                    </label>
+                    <input type="file" id="audio-upload" accept="audio/*" style="font-size: 0.8rem; padding: 5px;">
+                    <button class="btn debug" onclick="uploadCustomAudio()" style="margin-top: 5px;">
+                        📤 Carregar Áudio
+                    </button>
+                </div>
+                
+                <button class="btn debug" onclick="downloadLogs()">📥 Logs</button>
+                <button class="btn debug" onclick="clearLogs()">🗑️ Limpar</button>
+            </div>
+
+            <!-- Logs -->
+            <div class="debug-section">
+                <h3>📋 Logs em Tempo Real</h3>
+                <div id="log-viewer" class="log-viewer">Logs aparecerão aqui...</div>
+            </div>
+            
+            <div id="notification-status" class="notification-status" style="display: none;"></div>
+            
+            <!-- Formulário -->
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" required placeholder="Digite seu nome completo">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Assunto</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Selecione um assunto</option>
+                        <option value="contato">Contato Geral</option>
+                        <option value="suporte">Suporte Técnico</option>
+                        <option value="vendas">Vendas</option>
+                        <option value="parceria">Parceria</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" required placeholder="Digite sua mensagem aqui..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn" id="submit-btn">
+                    <span id="btn-text">Enviar Formulário</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Sistema de Logs
+        class PWALogger {
+            constructor() {
+                this.logs = JSON.parse(localStorage.getItem('pwa-logs') || '[]');
+                this.maxLogs = 100;
+                this.updateLogViewer();
+            }
+
+            log(message, type = 'info') {
+                const timestamp = new Date().toISOString();
+                const logEntry = {
+                    timestamp,
+                    type,
+                    message,
+                    userAgent: navigator.userAgent
+                };
+                
+                this.logs.unshift(logEntry);
+                if (this.logs.length > this.maxLogs) {
+                    this.logs = this.logs.slice(0, this.maxLogs);
+                }
+                
+                localStorage.setItem('pwa-logs', JSON.stringify(this.logs));
+                this.updateLogViewer();
+                console.log(`[PWA ${type.toUpperCase()}] ${message}`);
+            }
+
+            updateLogViewer() {
+                const viewer = document.getElementById('log-viewer');
+                if (viewer) {
+                    viewer.textContent = this.logs.map(log => 
+                        `[${log.timestamp.split('T')[1].split('.')[0]}] ${log.type.toUpperCase()}: ${log.message}`
+                    ).join('\n') || 'Nenhum log ainda...';
+                    viewer.scrollTop = 0;
+                }
+            }
+
+            downloadLogs() {
+                const logsText = this.logs.map(log => 
+                    `[${log.timestamp}] ${log.type.toUpperCase()}: ${log.message}\nUser Agent: ${log.userAgent}\n---`
+                ).join('\n');
+                
+                const blob = new Blob([logsText], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `pwa-logs-${new Date().toISOString().split('T')[0]}.txt`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                this.log('Logs baixados com sucesso');
+            }
+
+            clear() {
+                this.logs = [];
+                localStorage.removeItem('pwa-logs');
+                this.updateLogViewer();
+                console.clear();
+                this.log('Logs limpos');
+            }
+        }
+
+        // Sistema de Sons - COM ÁUDIOS PERSONALIZADOS
+        class SoundSystem {
+            constructor() {
+                this.audioContext = null;
+                this.isInitialized = false;
+                this.customAudios = {};
+                this.loadCustomAudios();
+            }
+
+            // Carregar áudios personalizados
+            loadCustomAudios() {
+                // Método 1: URLs de arquivos de áudio
+                this.customAudios.success = {
+                    type: 'file',
+                    url: './sounds/nt1.mp3' // Coloque seu arquivo aqui
+                };
+                
+                this.customAudios.notification = {
+                    type: 'file', 
+                    url: './sounds/nt2.mp3' // Coloque seu arquivo aqui
+                };
+
+                // Método 2: Base64 embutido (recomendado para PWA)
+                this.customAudios.embedded_success = {
+                    type: 'base64',
+                    data: 'data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjqX2O2+dyMFl2+z9N2QQAoUXrTp66hVFApGn+DyvmwhBjiR0ey9dCEHl2+z9NyfQggWYLPn66hVFgpGnt/yvmwhBjmM0ey9cyAJl2+z9NyfQgcXYLPn66hWFAlLmNrtyG0fCTyJ0/G9cyAJl2+z9NyfQgcXYLPn66hWFAlLl9n0z2wgCTmM0PLBciAHl2+z9NyfQgcXYLPn66hWFApKmNDuyGwgBz2J0/G+cB8Il2+z9NqfQgYWXrPp66pWFAlKmdL0yWsdBTyJ0/G+cB8Il2+z9NqfQgYWXrPp66pWFQlKmdL0yWsdBTyJ0/G+cB8Il2+z9NqfQgYWXrPp66pWFQlKmdL0yWsdBTyJ0/G+cB8Il2+z9NqfQgYWXrPp66pWFAlKmdL0yWsdBTyJ0/G+cB8Il2+z9NqfQgYWXrPp66pWFAlKmdL0yWsdBTyJ0/G+cB8Il2+z9NqfQgYWXrPp66pWFAlKmdL0yWsdBTyJ0/G+cB8Il2+z9NqfQgYWXrPp66pWFAlKmdL0yWsdBTyJ0/G+cB8Il2+z9NqfQgYWXrPp66pWFAlKmdL0yWsdBTyJ0/G+cB8Il2+z9NqfQgYWXrPp66pWFAlKmdL0yWsdBTyJ0/G+cB8Il2+z9NqfQgYWXrPp66pWFAlKmdL0yWsdBTyJ0/G+cB8Il2+z9NqfQgYWXrPp66pWFAlKmdL0yWsdBTyJ0/G+cB8Il2+z9NqfQgYWXrPp66pWFAlKmdL0yWsdBTyJ0/G+cB8I'
+                };
+
+                // Método 3: URLs online (CDN, etc.)
+                this.customAudios.online_sound = {
+                    type: 'file',
+                    url: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+                };
+
+                logger.log('Áudios personalizados carregados');
+            }
+
+            async initialize() {
+                try {
+                    if (!this.audioContext) {
+                        this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    }
+                    
+                    if (this.audioContext.state === 'suspended') {
+                        await this.audioContext.resume();
+                    }
+                    
+                    this.isInitialized = true;
+                    logger.log('Sistema de áudio inicializado para iOS');
+                    return true;
+                } catch (error) {
+                    logger.log(`Erro ao inicializar áudio: ${error.message}`, 'error');
+                    return false;
+                }
+            }
+
+            // Reproduzir áudio personalizado
+            async playCustomAudio(audioKey) {
+                try {
+                    const audioConfig = this.customAudios[audioKey];
+                    if (!audioConfig) {
+                        logger.log(`Áudio '${audioKey}' não encontrado`, 'error');
+                        return false;
+                    }
+
+                    logger.log(`Reproduzindo áudio personalizado: ${audioKey}`);
+
+                    if (audioConfig.type === 'base64' || audioConfig.type === 'file') {
+                        // Usar HTML5 Audio para arquivos
+                        const audio = new Audio();
+                        audio.preload = 'auto';
+                        audio.volume = 0.7;
+
+                        // Definir fonte
+                        if (audioConfig.type === 'base64') {
+                            audio.src = audioConfig.data;
+                        } else {
+                            audio.src = audioConfig.url;
+                        }
+
+                        // Reproduzir com tratamento de erro
+                        const playPromise = audio.play();
+                        if (playPromise !== undefined) {
+                            await playPromise;
+                            logger.log(`Áudio personalizado '${audioKey}' reproduzido com sucesso`, 'success');
+                            return true;
+                        }
+                    }
+
+                    return false;
+                } catch (error) {
+                    logger.log(`Erro ao reproduzir áudio '${audioKey}': ${error.message}`, 'error');
+                    return false;
+                }
+            }
+
+            // Adicionar novo áudio personalizado dinamicamente
+            addCustomAudio(key, type, source) {
+                this.customAudios[key] = {
+                    type: type, // 'file', 'base64', ou 'blob'
+                    [type === 'base64' ? 'data' : 'url']: source
+                };
+                logger.log(`Áudio personalizado '${key}' adicionado`);
+            }
+
+            // Listar áudios disponíveis
+            listCustomAudios() {
+                const audioList = Object.keys(this.customAudios);
+                logger.log(`Áudios personalizados disponíveis: ${audioList.join(', ')}`);
+                return audioList;
+            }
+
+            // Métodos originais mantidos como fallback
+            async playSuccessSound() {
+                // Primeiro tenta tocar áudio personalizado
+                const customPlayed = await this.playCustomAudio('success') || 
+                                   await this.playCustomAudio('embedded_success');
+                
+                if (customPlayed) return;
+
+                // Fallback para som gerado
+                try {
+                    if (!this.isInitialized) {
+                        await this.initialize();
+                    }
+
+                    if (!this.audioContext) return;
+
+                    const currentTime = this.audioContext.currentTime;
+                    const gainNode = this.audioContext.createGain();
+                    gainNode.connect(this.audioContext.destination);
+                    
+                    gainNode.gain.setValueAtTime(0, currentTime);
+                    gainNode.gain.linearRampToValueAtTime(0.08, currentTime + 0.05);
+                    gainNode.gain.linearRampToValueAtTime(0.06, currentTime + 0.2);
+                    gainNode.gain.linearRampToValueAtTime(0, currentTime + 0.6);
+
+                    const frequencies = [523.25, 659.25, 783.99];
+                    frequencies.forEach((freq, index) => {
+                        const oscillator = this.audioContext.createOscillator();
+                        oscillator.type = 'sine';
+                        oscillator.frequency.setValueAtTime(freq, currentTime);
+                        
+                        const noteGain = this.audioContext.createGain();
+                        noteGain.gain.setValueAtTime(0.3 - (index * 0.05), currentTime);
+                        
+                        oscillator.connect(noteGain);
+                        noteGain.connect(gainNode);
+                        oscillator.start(currentTime);
+                        oscillator.stop(currentTime + 0.6);
+                    });
+
+                    logger.log('Som de sucesso gerado reproduzido (fallback)', 'success');
+                } catch (error) {
+                    logger.log(`Erro no fallback de som: ${error.message}`, 'error');
+                }
+            }
+
+            async playTestSound() {
+                // Primeiro tenta tocar áudio personalizado
+                const customPlayed = await this.playCustomAudio('notification') ||
+                                   await this.playCustomAudio('online_sound');
+                
+                if (customPlayed) return;
+
+                // Fallback para som gerado
+                try {
+                    if (!this.isInitialized) {
+                        await this.initialize();
+                    }
+
+                    if (!this.audioContext) return;
+
+                    const currentTime = this.audioContext.currentTime;
+                    const gainNode = this.audioContext.createGain();
+                    gainNode.connect(this.audioContext.destination);
+                    
+                    gainNode.gain.setValueAtTime(0, currentTime);
+                    gainNode.gain.linearRampToValueAtTime(0.1, currentTime + 0.05);
+                    gainNode.gain.linearRampToValueAtTime(0.05, currentTime + 0.15);
+                    gainNode.gain.linearRampToValueAtTime(0, currentTime + 0.4);
+
+                    const oscillator = this.audioContext.createOscillator();
+                    oscillator.type = 'sine';
+                    oscillator.frequency.setValueAtTime(440, currentTime);
+                    oscillator.connect(gainNode);
+                    oscillator.start(currentTime);
+                    oscillator.stop(currentTime + 0.4);
+
+                    logger.log('Som de teste gerado reproduzido (fallback)', 'success');
+                } catch (error) {
+                    logger.log(`Erro no fallback de som: ${error.message}`, 'error');
+                }
+            }
+
+            // Método para fazer upload de áudio via input file
+            async loadAudioFromFile(file, audioKey) {
+                try {
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        
+                        reader.onload = (event) => {
+                            const base64Data = event.target.result;
+                            this.addCustomAudio(audioKey, 'base64', base64Data);
+                            logger.log(`Áudio '${audioKey}' carregado do arquivo`, 'success');
+                            resolve(true);
+                        };
+                        
+                        reader.onerror = () => {
+                            logger.log(`Erro ao ler arquivo de áudio`, 'error');
+                            reject(false);
+                        };
+                        
+                        reader.readAsDataURL(file);
+                    });
+                } catch (error) {
+                    logger.log(`Erro ao carregar áudio do arquivo: ${error.message}`, 'error');
+                    return false;
+                }
+            }
+
+            // Método antigo mantido para compatibilidade
+            async playFallbackSound(type = 'success') {
+                // Código anterior mantido...
+                try {
+                    const frequency = type === 'success' ? 523.25 : 440;
+                    const duration = type === 'success' ? 0.6 : 0.4;
+                    
+                    const generateTone = (freq, dur, sampleRate = 22050) => {
+                        const samples = dur * sampleRate;
+                        const buffer = new ArrayBuffer(samples * 2);
+                        const view = new DataView(buffer);
+                        
+                        for (let i = 0; i < samples; i++) {
+                            const t = i / sampleRate;
+                            const amplitude = Math.sin(2 * Math.PI * freq * t) * 
+                                            Math.max(0, 1 - t / dur);
+                            const sample = Math.round(amplitude * 32767);
+                            view.setInt16(i * 2, sample, true);
+                        }
+                        
+                        return buffer;
+                    };
+
+                    const createWavHeader = (dataLength, sampleRate = 22050) => {
+                        const buffer = new ArrayBuffer(44);
+                        const view = new DataView(buffer);
+                        
+                        const writeString = (offset, string) => {
+                            for (let i = 0; i < string.length; i++) {
+                                view.setUint8(offset + i, string.charCodeAt(i));
+                            }
+                        };
+                        
+                        writeString(0, 'RIFF');
+                        view.setUint32(4, 36 + dataLength, true);
+                        writeString(8, 'WAVE');
+                        writeString(12, 'fmt ');
+                        view.setUint32(16, 16, true);
+                        view.setUint16(20, 1, true);
+                        view.setUint16(22, 1, true);
+                        view.setUint32(24, sampleRate, true);
+                        view.setUint32(28, sampleRate * 2, true);
+                        view.setUint16(32, 2, true);
+                        view.setUint16(34, 16, true);
+                        writeString(36, 'data');
+                        view.setUint32(40, dataLength, true);
+                        
+                        return buffer;
+                    };
+
+                    const toneData = generateTone(frequency, duration);
+                    const header = createWavHeader(toneData.byteLength);
+                    
+                    const wavBuffer = new Uint8Array(header.byteLength + toneData.byteLength);
+                    wavBuffer.set(new Uint8Array(header), 0);
+                    wavBuffer.set(new Uint8Array(toneData), header.byteLength);
+                    
+                    const blob = new Blob([wavBuffer], { type: 'audio/wav' });
+                    const url = URL.createObjectURL(blob);
+                    
+                    const audio = new Audio(url);
+                    audio.volume = 0.3;
+                    
+                    const playPromise = audio.play();
+                    if (playPromise !== undefined) {
+                        await playPromise;
+                    }
+                    
+                    setTimeout(() => {
+                        URL.revokeObjectURL(url);
+                    }, 1000);
+                    
+                    logger.log(`Som ${type} reproduzido (fallback HTML5)`, 'success');
+                } catch (error) {
+                    logger.log(`Erro no som fallback: ${error.message}`, 'error');
+                }
+            }
+        }
+
+        // Inicializar sistemas
+        const logger = new PWALogger();
+        const soundSystem = new SoundSystem();
+
+        logger.log('PWA iniciado com sistema de sons');
+
+        // Funções de Debug
+        function updateDebugInfo() {
+            const debugDiv = document.getElementById('debug-info');
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            const isPWA = window.matchMedia('(display-mode: standalone)').matches;
+            
+            const info = `🌐 Navegador: ${navigator.userAgent.split(' ').pop()}
+📱 iOS: ${isIOS ? 'Sim' : 'Não'}
+📲 PWA: ${isPWA ? 'Sim' : 'Não'}
+🔔 Notificações: ${Notification.permission}
+🔊 Áudio: ${soundSystem.isInitialized ? 'Inicializado' : 'Aguardando interação'}
+🌐 Online: ${navigator.onLine ? 'Sim' : 'Não'}
+📍 HTTPS: ${location.protocol === 'https:' ? 'Sim' : 'Não'}
+⏰ Atualizado: ${new Date().toLocaleTimeString()}`;
+            
+            debugDiv.textContent = info;
+        }
+
+        async function requestPermissions() {
+            logger.log('Solicitando permissões...');
+            
+            try {
+                if (!('Notification' in window)) {
+                    logger.log('Notificações não suportadas', 'error');
+                    showNotification('Notificações não suportadas', 'error');
+                    return false;
+                }
+
+                const permission = await Notification.requestPermission();
+                logger.log(`Permissão: ${permission}`, permission === 'granted' ? 'success' : 'warning');
+                
+                if (permission === 'granted') {
+                    showNotification('Permissões concedidas!', 'success');
+                    return true;
+                } else {
+                    showNotification('Permissões negadas', 'error');
+                    return false;
+                }
+            } catch (error) {
+                logger.log(`Erro ao solicitar permissões: ${error.message}`, 'error');
+                return false;
+            } finally {
+                updateDebugInfo();
+            }
+        }
+
+        async function testSoundOnly() {
+            logger.log('Testando apenas o som...');
+            
+            try {
+                // Tentar Web Audio API primeiro
+                await soundSystem.playTestSound();
+                showNotification('Som de teste reproduzido com Web Audio!', 'success');
+            } catch (error) {
+                logger.log('Web Audio falhou, tentando fallback...', 'warning');
+                try {
+                    // Fallback para HTML5 Audio
+                    await soundSystem.playFallbackSound('test');
+                    showNotification('Som de teste reproduzido com HTML5 Audio!', 'success');
+                } catch (fallbackError) {
+                    logger.log(`Ambos os métodos de áudio falharam: ${fallbackError.message}`, 'error');
+                    showNotification('Erro ao reproduzir som em ambos os métodos', 'error');
+                }
+            }
+        }
+
+        async function testNotificationWithSound() {
+            logger.log('Testando notificação completa com som...');
+            
+            try {
+                if (Notification.permission !== 'granted') {
+                    const granted = await requestPermissions();
+                    if (!granted) return;
+                }
+
+                // Tentar reproduzir som
+                try {
+                    await soundSystem.playTestSound();
+                    logger.log('Som Web Audio reproduzido com sucesso');
+                } catch (soundError) {
+                    logger.log('Web Audio falhou, tentando fallback...', 'warning');
+                    await soundSystem.playFallbackSound('test');
+                    logger.log('Som fallback reproduzido com sucesso');
+                }
+
+                // Notificação depois de um pequeno delay
+                setTimeout(() => {
+                    const notification = new Notification('🧪 Teste Completo', {
+                        body: 'Som + Notificação funcionando no iOS!',
+                        icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9IiMyOGE3NDUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTY0IDhBNTYgNTYgMCAxIDAgNjQgMTIwQTU2IDU2IDAgMSAwIDY0IDh6bTAgOTZBNDAgNDAgMCAxIDEgNjQgMjRBNDAgNDAgMCAwIDEgNjQgMTA0eiIvPjxwYXRoIGQ9Ik01NSA3NUwyOCA0OEwyMCA1Nkw1NSA5MUwxMDggMzhMMTAwIDMwTDU1IDc1eiIvPjwvc3ZnPg==',
+                        tag: 'test-complete',
+                        requireInteraction: true,
+                        silent: false,
+                        vibrate: [200, 100, 200]
+                    });
+
+                    notification.onshow = () => {
+                        logger.log('Teste completo - som e notificação funcionando!', 'success');
+                        showNotification('Teste completo executado com sucesso!', 'success');
+                    };
+
+                    notification.onclick = () => {
+                        notification.close();
+                        window.focus();
+                    };
+
+                    setTimeout(() => notification.close(), 8000);
+                }, 300);
+
+            } catch (error) {
+                logger.log(`Erro no teste completo: ${error.message}`, 'error');
+                showNotification(`Erro: ${error.message}`, 'error');
+            }
+        }
+
+        function showNotification(message, type) {
+            const statusDiv = document.getElementById('notification-status');
+            statusDiv.textContent = message;
+            statusDiv.className = `notification-status ${type}`;
+            statusDiv.style.display = 'block';
+            setTimeout(() => statusDiv.style.display = 'none', 5000);
+        }
+
+        function downloadLogs() {
+            logger.downloadLogs();
+        }
+
+        // Funções para áudios personalizados
+        function listAvailableAudios() {
+            const audioList = soundSystem.listCustomAudios();
+            showNotification(`Áudios disponíveis: ${audioList.join(', ')}`, 'info');
+        }
+
+        async function uploadCustomAudio() {
+            const fileInput = document.getElementById('audio-upload');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                showNotification('Selecione um arquivo de áudio primeiro!', 'warning');
+                return;
+            }
+
+            if (!file.type.startsWith('audio/')) {
+                showNotification('Por favor, selecione um arquivo de áudio válido!', 'error');
+                return;
+            }
+
+            try {
+                logger.log(`Carregando áudio: ${file.name}`);
+                showNotification('Carregando áudio...', 'info');
+                
+                const success = await soundSystem.loadAudioFromFile(file, 'custom_uploaded');
+                
+                if (success) {
+                    showNotification(`Áudio "${file.name}" carregado com sucesso!`, 'success');
+                    
+                    // Testar o áudio carregado
+                    setTimeout(async () => {
+                        const played = await soundSystem.playCustomAudio('custom_uploaded');
+                        if (played) {
+                            logger.log('Áudio personalizado carregado testado com sucesso');
+                        }
+                    }, 1000);
+                } else {
+                    showNotification('Erro ao carregar áudio', 'error');
+                }
+                
+                // Limpar input
+                fileInput.value = '';
+                
+            } catch (error) {
+                logger.log(`Erro no upload: ${error.message}`, 'error');
+                showNotification('Erro ao carregar arquivo', 'error');
+            }
+        }
+
+        function clearLogs() {
+            logger.clear();
+        }
+
+        // Função para adicionar áudios via URL
+        function addAudioFromURL(key, url) {
+            soundSystem.addCustomAudio(key, 'file', url);
+            logger.log(`Áudio '${key}' adicionado via URL: ${url}`);
+        }
+
+        // Função para adicionar áudios via Base64
+        function addAudioFromBase64(key, base64Data) {
+            soundSystem.addCustomAudio(key, 'base64', base64Data);
+            logger.log(`Áudio '${key}' adicionado via Base64`);
+        }
+
+        // Função para adicionar áudios via URL
+        function addAudioFromURL(key, url) {
+            soundSystem.addCustomAudio(key, 'file', url);
+            logger.log(`Áudio '${key}' adicionado via URL: ${url}`);
+        }
+
+        // Função para adicionar áudios via Base64
+        function addAudioFromBase64(key, base64Data) {
+            soundSystem.addCustomAudio(key, 'base64', base64Data);
+            logger.log(`Áudio '${key}' adicionado via Base64`);
+        }
+
+        // Formulário SEM RELOAD
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault(); // EVITA RELOAD
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            
+            logger.log('Formulário enviado (sem reload)');
+            
+            submitBtn.disabled = true;
+            btnText.innerHTML = '<span class="loading"></span>Enviando...';
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                // Simular envio
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                logger.log(`Dados: ${JSON.stringify(data)}`);
+                logger.log('Formulário processado com sucesso', 'success');
+                
+                showNotification('Formulário enviado com sucesso!', 'success');
+                
+                // Som + Notificação
+                await sendSuccessNotification(data);
+                
+                // Reset suave sem reload
+                this.reset();
+                btnText.innerHTML = '✅ Enviado!';
+                
+            } catch (error) {
+                logger.log(`Erro: ${error.message}`, 'error');
+                showNotification('Erro ao enviar. Tente novamente.', 'error');
+                btnText.innerHTML = '❌ Erro';
+            } finally {
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    btnText.textContent = 'Enviar Formulário';
+                }, 2000);
+            }
+        });
+
+        async function sendSuccessNotification(data) {
+            try {
+                if (Notification.permission !== 'granted') {
+                    logger.log('Permissões necessárias para notificação', 'warning');
+                    const granted = await requestPermissions();
+                    if (!granted) return;
+                }
+
+                logger.log('Enviando notificação de sucesso...');
+                
+                // Tentar reproduzir som com fallback automático
+                try {
+                    await soundSystem.playSuccessSound();
+                    logger.log('Som de sucesso reproduzido (Web Audio)');
+                } catch (soundError) {
+                    logger.log('Web Audio falhou, usando fallback...', 'warning');
+                    try {
+                        await soundSystem.playFallbackSound('success');
+                        logger.log('Som de sucesso reproduzido (HTML5 Audio)');
+                    } catch (fallbackError) {
+                        logger.log(`Erro em ambos os métodos de áudio: ${fallbackError.message}`, 'error');
+                    }
+                }
+                
+                // Notificação após pequeno delay para sincronização
+                setTimeout(() => {
+                    const notification = new Notification('✅ Formulário Enviado!', {
+                        body: `Obrigado, ${data.name}! Sua mensagem sobre "${data.subject}" foi enviada com sucesso.`,
+                        icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9IiMyOGE3NDUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTY0IDhBNTYgNTYgMCAxIDAgNjQgMTIwQTU2IDU2IDAgMSAwIDY0IDh6bTAgOTZBNDAgNDAgMCAxIDEgNjQgMjRBNDAgNDAgMCAwIDEgNjQgMTA0eiIvPjxwYXRoIGQ9Ik01NSA3NUwyOCA0OEwyMCA1Nkw1NSA5MUwxMDggMzhMMTAwIDMwTDU1IDc1eiIvPjwvc3ZnPg==',
+                        tag: 'form-success-' + Date.now(),
+                        requireInteraction: true,
+                        silent: false,
+                        vibrate: [100, 50, 100, 50, 100, 50, 100]
+                    });
+
+                    notification.onclick = () => {
+                        logger.log('Notificação de sucesso clicada');
+                        notification.close();
+                        window.focus();
+                    };
+
+                    notification.onshow = () => {
+                        logger.log('Notificação de sucesso exibida com som!', 'success');
+                    };
+
+                    notification.onerror = (error) => {
+                        logger.log(`Erro na notificação: ${error}`, 'error');
+                    };
+
+                    // Auto-close após 10 segundos
+                    setTimeout(() => {
+                        if (notification) {
+                            notification.close();
+                            logger.log('Notificação fechada automaticamente');
+                        }
+                    }, 10000);
+                }, 200);
+
+            } catch (error) {
+                logger.log(`Erro na notificação de sucesso: ${error.message}`, 'error');
+            }
+        }
+
+        // Formatação de telefone
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                if (value.length <= 10) {
+                    value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+                } else {
+                    value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+                }
+            }
+            e.target.value = value;
+        });
+
+        // Inicializar áudio com primeira interação (iOS)
+        function initAudioOnFirstTouch() {
+            soundSystem.initialize();
+            updateDebugInfo();
+        }
+
+        document.body.addEventListener('touchstart', initAudioOnFirstTouch, { once: true });
+        document.body.addEventListener('click', initAudioOnFirstTouch, { once: true });
+
+        // Event listeners
+        window.addEventListener('online', () => {
+            logger.log('Voltou online');
+            updateDebugInfo();
+        });
+
+        window.addEventListener('offline', () => {
+            logger.log('Ficou offline');
+            updateDebugInfo();
+        });
+
+        // Verificar se é PWA instalado
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            logger.log('Rodando como PWA instalado', 'success');
+        } else {
+            logger.log('Rodando no navegador');
+        }
+
+        // Inicializar ao carregar
+        window.addEventListener('load', () => {
+            logger.log('Página carregada completamente');
+            updateDebugInfo();
+            
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            const isPWA = window.matchMedia('(display-mode: standalone)').matches;
+            
+            if (isIOS && isPWA) {
+                logger.log('iOS PWA detectado - configuração otimizada', 'success');
+                setTimeout(() => {
+                    if (Notification.permission === 'default') {
+                        showNotification('💡 Toque em qualquer botão para ativar áudio e permita notificações!', 'info');
+                    }
+                }, 2000);
+            } else if (isIOS && !isPWA) {
+                showNotification('📲 Para melhor experiência, instale na tela inicial!', 'warning');
+            }
+            
+            // Atualizar debug a cada 30s
+            setInterval(updateDebugInfo, 30000);
+        });
+
+        // Prevenir reload acidental
+        window.addEventListener('beforeunload', (e) => {
+            const form = document.getElementById('contact-form');
+            const hasData = Array.from(new FormData(form)).some(([key, value]) => 
+                value && value.toString().trim() !== ''
+            );
+            
+            if (hasData) {
+                e.preventDefault();
+                e.returnValue = 'Você tem dados não salvos. Deseja sair?';
+                logger.log('Prevenindo reload com dados no formulário');
+                return e.returnValue;
+            }
+        });
+
+        // Error handling
+        window.addEventListener('error', (error) => {
+            logger.log(`Erro JS: ${error.message}`, 'error');
+        });
+
+        window.addEventListener('unhandledrejection', (event) => {
+            logger.log(`Promise rejeitada: ${event.reason}`, 'error');
+        });
+
+        // iOS optimizations
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            // Prevenir zoom no focus de inputs
+            document.addEventListener('touchstart', function() {}, {passive: true});
+            
+            // Fix de altura para iOS
+            const setVH = () => {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            };
+            
+            window.addEventListener('resize', setVH);
+            window.addEventListener('orientationchange', setVH);
+            setVH();
+            
+            logger.log('Otimizações iOS aplicadas');
+        }
+    </script>
+</body>
+</html>
